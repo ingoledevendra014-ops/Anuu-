@@ -3,838 +3,300 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Anushka ❤️</title>
+<title>Happy Birthday Anushka ❤️</title>
 
 <style>
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Georgia,serif;
 }
 
 body{
-  background:#090511;
-  color:white;
-  font-family:Georgia,serif;
-  overflow:hidden;
+    min-height:100vh;
+    overflow:hidden;
+    background:linear-gradient(135deg,#180014,#4b0828,#12000f);
+    color:white;
 }
 
-/* ---------- COMMON ---------- */
-
 .page{
-  width:100%;
-  height:100vh;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:20px;
-  position:relative;
-  overflow:hidden;
+    position:absolute;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    animation:fade 1s ease;
 }
 
 .page.active{
-  display:flex;
+    display:flex;
+}
+
+.content{
+    width:100%;
+    max-width:700px;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+h2{
+    font-size:30px;
+    margin-bottom:18px;
+}
+
+p{
+    font-size:18px;
+    line-height:1.8;
 }
 
 button{
-  border:1px solid #ffffff55;
-  background:#ffffff15;
-  color:white;
-  padding:13px 25px;
-  border-radius:30px;
-  font-size:15px;
-  font-weight:bold;
-  cursor:pointer;
-  backdrop-filter:blur(12px);
-  transition:.3s;
+    margin-top:30px;
+    padding:14px 28px;
+    border:none;
+    border-radius:30px;
+    background:#ff4f91;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    box-shadow:0 8px 25px #ff4f9166;
+    transition:.3s;
 }
 
 button:hover{
-  transform:scale(1.05);
-  background:#ffffff30;
+    transform:scale(1.07);
 }
 
+/* Floating Hearts */
 
-/* ---------- INTRO ---------- */
-
-#intro{
-  background:
-  radial-gradient(circle at center,#55204f,#17091e 55%,#050308);
+.heart{
+    position:fixed;
+    bottom:-30px;
+    font-size:20px;
+    animation:floatUp 7s linear infinite;
+    opacity:.7;
+    pointer-events:none;
 }
 
-.introBox{
-  animation:fadeIn 2s;
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
 }
 
-.introBox .small{
-  font-family:Arial;
-  letter-spacing:3px;
-  font-size:12px;
-  opacity:.65;
-  margin-bottom:18px;
-}
-
-.introBox h1{
-  font-size:clamp(45px,11vw,90px);
-  line-height:1;
-  margin-bottom:20px;
-}
-
-.introBox p{
-  font-family:Arial;
-  opacity:.75;
-  margin-bottom:30px;
-}
-
-@keyframes fadeIn{
-  from{
-    opacity:0;
-    transform:translateY(20px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-
-/* ---------- SUSPENSE ---------- */
-
-#suspense{
-  background:
-  radial-gradient(circle,#3b1641,#110719 65%,#050308);
-}
-
-.suspenseBox{
-  width:100%;
-  max-width:700px;
-}
-
-.suspenseText{
-  font-family:Arial;
-  letter-spacing:2px;
-  font-size:13px;
-  opacity:.6;
-  margin-bottom:10px;
-}
-
-.suspenseBox h2{
-  font-size:clamp(30px,7vw,52px);
-  margin-bottom:10px;
-}
-
-.hint{
-  font-family:Arial;
-  font-size:14px;
-  opacity:.55;
-  margin-bottom:15px;
-}
-
-
-/* ---------- CIRCLE PHOTOS ---------- */
+/* PHOTO ORBIT */
 
 .orbit{
-  width:330px;
-  height:330px;
-  margin:20px auto;
-  position:relative;
-  border-radius:50%;
+    width:380px;
+    height:380px;
+    margin:25px auto;
+    position:relative;
+    border-radius:50%;
+    animation:orbitRotate 22s linear infinite;
 }
 
 .orbitRing{
-  position:absolute;
-  width:100%;
-  height:100%;
-  border:1px solid #ffffff18;
-  border-radius:50%;
-  animation:spin 18s linear infinite;
-}
-
-.orbitRing::after{
-  content:"";
-  position:absolute;
-  width:8px;
-  height:8px;
-  background:white;
-  border-radius:50%;
-  top:-4px;
-  left:50%;
-  box-shadow:0 0 20px white;
-}
-
-@keyframes spin{
-  to{
-    transform:rotate(360deg);
-  }
+    position:absolute;
+    inset:0;
+    border:1px solid #ffffff25;
+    border-radius:50%;
 }
 
 .orbitPhoto{
-  position:absolute;
-  width:76px;
-  height:76px;
-  border-radius:50%;
-  overflow:hidden;
-  border:3px solid #ffffffaa;
-  box-shadow:0 0 25px #ff69b455;
-  animation:photoSpin 18s linear infinite;
+    position:absolute;
+    width:125px;
+    height:165px;
+    border-radius:18px;
+    overflow:hidden;
+    border:3px solid #ffffffcc;
+    background:#111;
+    box-shadow:0 10px 35px #0009;
 }
 
 .orbitPhoto img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
 }
-
-@keyframes photoSpin{
-  from{
-    transform:rotate(0deg);
-  }
-  to{
-    transform:rotate(-360deg);
-  }
-}
-
-/* positions */
 
 .p1{
-  top:-5px;
-  left:127px;
+    top:-35px;
+    left:127px;
 }
 
 .p2{
-  top:50px;
-  right:-5px;
+    top:45px;
+    right:-45px;
 }
 
 .p3{
-  bottom:50px;
-  right:-5px;
+    bottom:45px;
+    right:-45px;
 }
 
 .p4{
-  bottom:-5px;
-  left:127px;
+    bottom:-35px;
+    left:127px;
 }
 
 .p5{
-  bottom:50px;
-  left:-5px;
+    bottom:45px;
+    left:-45px;
 }
 
 .p6{
-  top:50px;
-  left:-5px;
+    top:45px;
+    left:-45px;
 }
 
-
-/* ---------- REVEAL ---------- */
-
-.reveal{
-  margin-top:10px;
+@keyframes orbitRotate{
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform:rotate(360deg);
+    }
 }
 
-#secretText{
-  display:none;
-  font-size:20px;
-  line-height:1.7;
-  animation:fadeIn 1.5s;
-  margin:15px;
-}
-
-
-/* ---------- MEMORY ---------- */
-
-#memory{
-  background:
-  linear-gradient(135deg,#190b20,#4b1e42,#160a20);
-}
-
-.memoryBox{
-  width:min(800px,95vw);
-}
-
-.memoryBox h2{
-  font-size:clamp(35px,8vw,60px);
-  margin-bottom:12px;
-}
-
-.memoryBox p{
-  font-family:Arial;
-  line-height:1.7;
-  opacity:.8;
-}
+/* MEMORY PHOTO */
 
 .memoryPhoto{
-  width:260px;
-  height:320px;
-  margin:25px auto;
-  border-radius:22px;
-  overflow:hidden;
-  border:1px solid #ffffff44;
-  box-shadow:0 20px 60px #0008;
+    width:280px;
+    max-width:90%;
+    border-radius:20px;
+    margin:15px auto;
+    display:block;
+    box-shadow:0 15px 40px #0009;
 }
 
-.memoryPhoto img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-
-/* ---------- LETTER ---------- */
-
-#letter{
-  background:
-  radial-gradient(circle at top,#542343,#160a19 70%);
-  overflow-y:auto;
-}
+/* LETTER */
 
 .letter{
-  width:min(780px,95vw);
-  max-height:90vh;
-  overflow-y:auto;
-  text-align:left;
-  padding:30px 24px;
-  border-radius:25px;
-  background:#ffffff0b;
-  border:1px solid #ffffff20;
-  backdrop-filter:blur(15px);
-}
-
-.letter h2{
-  text-align:center;
-  font-size:40px;
-  margin-bottom:25px;
+    background:#ffffff12;
+    border:1px solid #ffffff25;
+    border-radius:25px;
+    padding:28px;
+    max-height:70vh;
+    overflow-y:auto;
+    text-align:left;
+    backdrop-filter:blur(10px);
 }
 
 .letter p{
-  font-family:Arial;
-  font-size:16px;
-  line-height:1.8;
-  margin:16px 0;
+    font-size:17px;
+    line-height:1.9;
+    margin-bottom:16px;
 }
 
-.signature{
-  text-align:right!important;
-  font-family:Georgia!important;
-  font-size:19px!important;
-}
-
-
-/* ---------- HEARTS ---------- */
-
-.heart{
-  position:fixed;
-  font-size:18px;
-  opacity:.6;
-  animation:float 7s linear infinite;
-  pointer-events:none;
-}
-
-@keyframes float{
-  from{
-    transform:translateY(110vh);
-  }
-  to{
-    transform:translateY(-20vh);
-  }
-}
-
-
-/* ---------- CONFETTI ---------- */
+/* CONFETTI */
 
 .confetti{
-  position:fixed;
-  top:-20px;
-  width:8px;
-  height:13px;
-  z-index:99;
-  animation:fall 4s linear forwards;
+    position:fixed;
+    width:8px;
+    height:14px;
+    top:-20px;
+    animation:confettiFall 4s linear infinite;
+    pointer-events:none;
 }
 
-@keyframes fall{
-  to{
-    transform:translateY(110vh) rotate(720deg);
-    opacity:0;
-  }
+@keyframes confettiFall{
+    0%{
+        transform:translateY(0) rotate(0);
+    }
+    100%{
+        transform:translateY(110vh) rotate(720deg);
+    }
 }
 
-
-/* MOBILE */
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:scale(.95);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
 
 @media(max-width:500px){
 
-  .orbit{
-    width:280px;
-    height:280px;
-  }
+    h1{
+        font-size:32px;
+    }
 
-  .orbitPhoto{
-    width:65px;
-    height:65px;
-  }
+    h2{
+        font-size:25px;
+    }
 
-  .p1,.p4{
-    left:107px;
-  }
+    p{
+        font-size:16px;
+    }
 
-  .letter{
-    padding:24px 18px;
-  }
+    .orbit{
+        width:330px;
+        height:330px;
+    }
 
-  .letter p{
-    font-size:15px;
-  }
+    .orbitPhoto{
+        width:105px;
+        height:140px;
+    }
+
+    .p1,.p4{
+        left:112px;
+    }
+
+    .p2,.p3{
+        right:-25px;
+    }
+
+    .p5,.p6{
+        left:-25px;
+    }
+
+    .letter{
+        padding:20px;
+    }
+
+    .letter p{
+        font-size:15px;
+    }
 }
 </style>
 </head>
 
-
 <body>
 
-
-<!-- FLOATING HEARTS -->
-
-<script>
-
-for(let i=0;i<15;i++){
-
-  let heart=document.createElement("div");
-
-  heart.className="heart";
-
-  heart.innerHTML=["❤️","💗","✨","🌸"][i%4];
-
-  heart.style.left=Math.random()*100+"%";
-
-  heart.style.animationDelay=Math.random()*6+"s";
-
-  document.body.appendChild(heart);
-
-}
-
-</script>
-
-
-<!-- ================= INTRO ================= -->
-
-<section id="intro" class="page active">
-
-<div class="introBox">
-
-<div class="small">
-A LITTLE SOMETHING FOR YOU
-</div>
-
-<h1>
-Hey Anushka... ❤️
-</h1>
-
-<p>
-I made something special for your birthday.
-</p>
-
-<button onclick="nextPage('suspense')">
-Don't Open Yet... ✨
-</button>
-
-</div>
-
-</section>
-
-
-
-<!-- ================= SUSPENSE ================= -->
-
-<section id="suspense" class="page">
-
-<div class="suspenseBox">
-
-<div class="suspenseText">
-MEMORIES ARE WAITING...
-</div>
-
-<h2>
-Can you guess what's next? 👀
-</h2>
-
-<div class="hint">
-Don't try to understand everything... just watch. ❤️
-</div>
-
-
-<div class="orbit">
-
-<div class="orbitRing"></div>
-
-
-<div class="orbitPhoto p1">
-<img src="photo1.jpg">
-</div>
-
-<div class="orbitPhoto p2">
-<img src="photo2.jpg">
-</div>
-
-<div class="orbitPhoto p3">
-<img src="photo3.jpg">
-</div>
-
-<div class="orbitPhoto p4">
-<img src="photo4.jpg">
-</div>
-
-<div class="orbitPhoto p5">
-<img src="photo5.jpg">
-</div>
-
-<div class="orbitPhoto p6">
-<img src="photo6.jpg">
-</div>
-
-</div>
-
-
-<div id="secretText">
-
-✨ You probably know these photos...<br>
-
-but you don't know what's coming next. ❤️
-
-</div>
-
-
-<div class="reveal">
-
-<button onclick="revealSecret()">
-Tap To Reveal ❤️
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ================= MEMORY ================= -->
-
-<section id="memory" class="page">
-
-<div class="memoryBox">
-
-<div style="font-family:Arial;letter-spacing:3px;font-size:12px;opacity:.6">
-ONE MEMORY
-</div>
-
-<h2>
-And then... we happened. ❤️
-</h2>
-
-<p>
-School पासून आपण सोबत होतो...
-पण त्या वेळी कधी बोललोही नाही.
-</p>
-
-<div class="memoryPhoto">
-<img src="photo1.jpg">
-</div>
-
-<button onclick="nextMemory()">
-There's More... 💗
-</button>
-
-</div>
-
-</section>
-
-
-
-<!-- ================= LETTER ================= -->
-
-<section id="letter" class="page">
-
-<div class="letter">
-
-<h2>
-For You, Anushka ❤️
-</h2>
-
-
-<p>
-काही नाती अचानक सुरू होत नाहीत...
-ती हळूहळू, नकळत आपल्या आयुष्याचा
-एक सुंदर भाग बनत जातात. ❤️
-</p>
-
-
-<p>
-आपण school पासून सोबत आहोत...
-पण गंमत अशी की,
-school मध्ये असताना आपण कधी
-एकमेकांशी बोललोही नाही.
-</p>
-
-
-<p>
-एकाच school मध्ये होतो,
-एकमेकांना ओळखत होतो...
-पण त्या वेळी कुठे माहित होतं,
-की एक दिवस तू माझ्या आयुष्यात
-इतकी खास होशील. 🌸
-</p>
-
-
-<p>
-School संपल्यानंतर हळूहळू
-आपलं बोलणं सुरू झालं.
-थोडं बोलणं,
-मग अजून थोडं...
-आणि नकळत तुझ्याशी बोलणं
-माझ्या दिवसाचा सुंदर भाग बनलं.
-</p>
-
-
-<p>
-एकदा मी माझ्या मनातलं
-तुला सांगितलं...
-मी तुला propose केलं.
-पण तेव्हा तुझं उत्तर
-<strong>“नाही”</strong> होतं.
-</p>
-
-
-<p>
-मनाला वाईट वाटलं...
-पण कदाचित आपल्या story ची
-वेळ अजून आलेली नव्हती.
-</p>
-
-
-<p>
-मग जवळपास एक पूर्ण वर्ष गेलं...
-आणि पुन्हा आपण बोलायला लागलो.
-जुन्या ओळखीला जणू
-नवीन सुरुवात मिळाली. ❤️
-</p>
-
-
-<p>
-आणि यावेळी...
-मी पुन्हा माझ्या मनातलं
-तुला सांगितलं.
-पुन्हा तुला propose केलं...
-</p>
-
-
-<p style="text-align:center;font-size:23px!important">
-
-आणि यावेळी तुझं उत्तर होतं...
-
-<br><br>
-
-<strong>“हो.” ❤️</strong>
-
-</p>
-
-
-<p>
-त्या एका “हो” मध्ये माझ्यासाठी
-खूप काही होतं...
-एक वर्षाची वाट,
-अनेक आठवणी,
-थांबलेलं बोलणं
-आणि शेवटी मिळालेली
-एक सुंदर सुरुवात.
-</p>
-
-
-<p>
-कधी बोललो नाही,
-तरी कुठेतरी नातं होतंच...
-कधी दूर गेलो,
-तरी मन तुझ्यापासून दूर झालं नाही.
-</p>
-
-
-<p>
-एकदा “नाही” मिळालं,
-म्हणून story संपली नाही...
-कारण कदाचित आपल्या दोघांसाठी
-खरी सुरुवात अजून बाकी होती. ❤️
-</p>
-
-
-<p>
-आज तुझ्या birthday ला
-मला फक्त एवढंच सांगायचं आहे...
-</p>
-
-
-<p>
-<strong>
-तू माझ्या आयुष्यात आलीस,
-यासाठी मी मनापासून thankful आहे.
-</strong>
-</p>
-
-
-<p>
-तुझ्या चेहऱ्यावरचं smile
-कधीच कमी होऊ नये,
-तुझी प्रत्येक इच्छा पूर्ण व्हावी,
-आणि तुझ्या आयुष्यात
-नेहमी happiness, peace
-आणि love असावं. 🌸
-</p>
-
-
-<p>
-<strong>
-“देवा, तिच्या आयुष्यातल्या
-प्रत्येक दुःखापेक्षा
-तिच्या चेहऱ्यावरची smile
-नेहमी मोठी ठेव.” ❤️
-</strong>
-</p>
-
-
-<p class="signature">
-
-Happy Birthday, Anushka! 🎂❤️
-
-<br><br>
-
-Stay happy...
-Stay smiling...
-Always. 🌸
-
-<br><br>
-
-— From someone
-who is really grateful
-to have you in his life. ❤️
-
-</p>
-
-</div>
-
-</section>
-
-
-
-<!-- ================= SONG ================= -->
-
+<!-- MUSIC -->
 <audio id="song" loop>
-
-<source src="tu_mara_koi_na.mp3" type="audio/mpeg">
-
+    <source src="tu_mara_koi_na.mp3" type="audio/mpeg">
 </audio>
 
 
+<!-- PAGE 1 -->
 
-<script>
+<section class="page active" id="page1">
+    <div class="content">
 
-const song=document.getElementById("song");
+        <h1>Hey Anushka... ❤️</h1>
 
-
-/* START SONG AFTER FIRST TAP */
-
-document.body.addEventListener("click",()=>{
-
-  song.play().catch(()=>{});
-
-},{once:true});
-
-
-
-/* PAGE CHANGE */
-
-function nextPage(id){
-
-  document.querySelector(".page.active")
-  .classList.remove("active");
-
-  document.getElementById(id)
-  .classList.add("active");
-
-}
-
-
-
-/* SECRET REVEAL */
-
-function revealSecret(){
-
-  document.getElementById("secretText")
-  .style.display="block";
-
-  confetti(80);
-
-  setTimeout(()=>{
-
-    nextPage("memory");
-
-  },3000);
-
-}
-
-
-
-/* MEMORY */
-
-function nextMemory(){
-
-  confetti(100);
-
-  setTimeout(()=>{
-
-    nextPage("letter");
-
-  },700);
-
-}
-
-
-
-/* CONFETTI */
-
-function confetti(number){
-
-  for(let i=0;i<number;i++){
-
-    let c=document.createElement("span");
-
-    c.className="confetti";
-
-    c.style.left=Math.random()*100+"vw";
-
-    c.style.background=[
-      "#ff5c8a",
-      "#ffd166",
-      "#ffffff",
-      "#c8a2ff",
-      "#7ee8fa"
-    ][Math.floor(Math.random()*5)];
-
-    c.style.animationDuration=
-      (2+Math.random()*3)+"s";
-
-    document.body.appendChild(c);
-
-    setTimeout(()=>{
-
-      c.remove();
-
-    },5000);
-
-  }
-
-}
-
-</script>
-
-</body>
-</html>
+        <p>
+            Aaj kahi tari special aahe... ✨<br>
+            Pan sagla ekdam sangitla tar<br>
+            surprise cha meaning kay rahil? 👀
+       
