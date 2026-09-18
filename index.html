@@ -1,313 +1,515 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Happy Birthday Anushka ❤️</title>
+<title>For Anushka ❤️</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body{
-    font-family:Georgia,serif;
-    background:#160d24;
-    color:white;
-    overflow-x:hidden;
+  background:#090511;
+  color:white;
+  font-family:Georgia,serif;
+  overflow:hidden;
 }
 
-section{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:30px 18px;
-    position:relative;
-    overflow:hidden;
+/* ---------- COMMON ---------- */
+
+.page{
+  width:100%;
+  height:100vh;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  position:relative;
+  overflow:hidden;
 }
 
-/* HOME */
-#home{
-    text-align:center;
-    background:linear-gradient(135deg,#ed72a7,#b67be9,#6e8fe9);
-}
-
-h1{
-    font-size:clamp(42px,9vw,85px);
-    line-height:1.05;
-    text-shadow:0 5px 20px #6d2d6870;
-}
-
-h2{
-    font-size:clamp(32px,7vw,55px);
-    margin-bottom:15px;
-}
-
-.subtitle{
-    font-family:Arial,sans-serif;
-    font-size:18px;
-    margin:18px auto 30px;
-    max-width:650px;
-}
-
-.buttons{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
+.page.active{
+  display:flex;
 }
 
 button{
-    border:none;
-    padding:13px 22px;
-    border-radius:30px;
-    color:white;
-    background:#ffffff25;
-    border:1px solid #ffffff55;
-    backdrop-filter:blur(10px);
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
+  border:1px solid #ffffff55;
+  background:#ffffff15;
+  color:white;
+  padding:13px 25px;
+  border-radius:30px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+  backdrop-filter:blur(12px);
+  transition:.3s;
 }
 
 button:hover{
-    transform:translateY(-3px);
-    background:#ffffff40;
+  transform:scale(1.05);
+  background:#ffffff30;
 }
 
-.hidden{
-    display:none;
+
+/* ---------- INTRO ---------- */
+
+#intro{
+  background:
+  radial-gradient(circle at center,#55204f,#17091e 55%,#050308);
 }
 
-/* GIFT */
-#gift{
-    color:#402945;
-    background:linear-gradient(135deg,#fff0f7,#eee8ff);
+.introBox{
+  animation:fadeIn 2s;
 }
 
-.giftbox{
-    width:min(400px,92vw);
-    padding:40px 25px;
-    text-align:center;
-    border-radius:25px;
-    background:#ffffffb8;
-    box-shadow:0 20px 60px #a75a9a35;
+.introBox .small{
+  font-family:Arial;
+  letter-spacing:3px;
+  font-size:12px;
+  opacity:.65;
+  margin-bottom:18px;
 }
 
-.giftemoji{
-    font-size:130px;
-    margin-bottom:15px;
+.introBox h1{
+  font-size:clamp(45px,11vw,90px);
+  line-height:1;
+  margin-bottom:20px;
 }
 
-/* GALLERY */
-#gallery{
-    text-align:center;
-    background:radial-gradient(circle at top,#45234e,#160d24 70%);
+.introBox p{
+  font-family:Arial;
+  opacity:.75;
+  margin-bottom:30px;
 }
 
-.gallery{
-    width:min(1000px,95vw);
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-    gap:18px;
-    margin:30px 0;
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
-.photo{
-    aspect-ratio:4/5;
-    overflow:hidden;
-    border-radius:20px;
-    background:#ffffff10;
-    border:1px solid #ffffff30;
-    box-shadow:0 15px 35px #0005;
+
+/* ---------- SUSPENSE ---------- */
+
+#suspense{
+  background:
+  radial-gradient(circle,#3b1641,#110719 65%,#050308);
 }
 
-.photo img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.suspenseBox{
+  width:100%;
+  max-width:700px;
 }
 
-/* LETTER */
+.suspenseText{
+  font-family:Arial;
+  letter-spacing:2px;
+  font-size:13px;
+  opacity:.6;
+  margin-bottom:10px;
+}
+
+.suspenseBox h2{
+  font-size:clamp(30px,7vw,52px);
+  margin-bottom:10px;
+}
+
+.hint{
+  font-family:Arial;
+  font-size:14px;
+  opacity:.55;
+  margin-bottom:15px;
+}
+
+
+/* ---------- CIRCLE PHOTOS ---------- */
+
+.orbit{
+  width:330px;
+  height:330px;
+  margin:20px auto;
+  position:relative;
+  border-radius:50%;
+}
+
+.orbitRing{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border:1px solid #ffffff18;
+  border-radius:50%;
+  animation:spin 18s linear infinite;
+}
+
+.orbitRing::after{
+  content:"";
+  position:absolute;
+  width:8px;
+  height:8px;
+  background:white;
+  border-radius:50%;
+  top:-4px;
+  left:50%;
+  box-shadow:0 0 20px white;
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+.orbitPhoto{
+  position:absolute;
+  width:76px;
+  height:76px;
+  border-radius:50%;
+  overflow:hidden;
+  border:3px solid #ffffffaa;
+  box-shadow:0 0 25px #ff69b455;
+  animation:photoSpin 18s linear infinite;
+}
+
+.orbitPhoto img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+@keyframes photoSpin{
+  from{
+    transform:rotate(0deg);
+  }
+  to{
+    transform:rotate(-360deg);
+  }
+}
+
+/* positions */
+
+.p1{
+  top:-5px;
+  left:127px;
+}
+
+.p2{
+  top:50px;
+  right:-5px;
+}
+
+.p3{
+  bottom:50px;
+  right:-5px;
+}
+
+.p4{
+  bottom:-5px;
+  left:127px;
+}
+
+.p5{
+  bottom:50px;
+  left:-5px;
+}
+
+.p6{
+  top:50px;
+  left:-5px;
+}
+
+
+/* ---------- REVEAL ---------- */
+
+.reveal{
+  margin-top:10px;
+}
+
+#secretText{
+  display:none;
+  font-size:20px;
+  line-height:1.7;
+  animation:fadeIn 1.5s;
+  margin:15px;
+}
+
+
+/* ---------- MEMORY ---------- */
+
+#memory{
+  background:
+  linear-gradient(135deg,#190b20,#4b1e42,#160a20);
+}
+
+.memoryBox{
+  width:min(800px,95vw);
+}
+
+.memoryBox h2{
+  font-size:clamp(35px,8vw,60px);
+  margin-bottom:12px;
+}
+
+.memoryBox p{
+  font-family:Arial;
+  line-height:1.7;
+  opacity:.8;
+}
+
+.memoryPhoto{
+  width:260px;
+  height:320px;
+  margin:25px auto;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid #ffffff44;
+  box-shadow:0 20px 60px #0008;
+}
+
+.memoryPhoto img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+
+/* ---------- LETTER ---------- */
+
 #letter{
-    background:linear-gradient(135deg,#21102e,#47203f,#20132d);
+  background:
+  radial-gradient(circle at top,#542343,#160a19 70%);
+  overflow-y:auto;
 }
 
 .letter{
-    width:min(800px,94vw);
-    max-height:80vh;
-    overflow:auto;
-    padding:35px 28px;
-    border-radius:25px;
-    background:#ffffff0d;
-    border:1px solid #ffffff25;
-    backdrop-filter:blur(12px);
-    box-shadow:0 25px 70px #0005;
+  width:min(780px,95vw);
+  max-height:90vh;
+  overflow-y:auto;
+  text-align:left;
+  padding:30px 24px;
+  border-radius:25px;
+  background:#ffffff0b;
+  border:1px solid #ffffff20;
+  backdrop-filter:blur(15px);
 }
 
 .letter h2{
-    text-align:center;
+  text-align:center;
+  font-size:40px;
+  margin-bottom:25px;
 }
 
 .letter p{
-    font-family:Arial,sans-serif;
-    font-size:17px;
-    line-height:1.8;
-    margin:15px 0;
+  font-family:Arial;
+  font-size:16px;
+  line-height:1.8;
+  margin:16px 0;
 }
 
 .signature{
-    text-align:right;
-    margin-top:30px!important;
-    font-family:Georgia,serif!important;
-    font-size:20px!important;
+  text-align:right!important;
+  font-family:Georgia!important;
+  font-size:19px!important;
 }
 
-/* FLOATING HEARTS */
+
+/* ---------- HEARTS ---------- */
+
 .heart{
-    position:fixed;
-    font-size:22px;
-    animation:float 7s linear infinite;
-    opacity:.7;
-    z-index:2;
-    pointer-events:none;
+  position:fixed;
+  font-size:18px;
+  opacity:.6;
+  animation:float 7s linear infinite;
+  pointer-events:none;
 }
 
 @keyframes float{
-    from{
-        transform:translateY(110vh) rotate(0);
-    }
-    to{
-        transform:translateY(-15vh) rotate(360deg);
-    }
+  from{
+    transform:translateY(110vh);
+  }
+  to{
+    transform:translateY(-20vh);
+  }
 }
 
-/* CONFETTI */
+
+/* ---------- CONFETTI ---------- */
+
 .confetti{
-    position:fixed;
-    top:-20px;
-    width:9px;
-    height:14px;
-    z-index:50;
-    animation:fall linear forwards;
+  position:fixed;
+  top:-20px;
+  width:8px;
+  height:13px;
+  z-index:99;
+  animation:fall 4s linear forwards;
 }
 
 @keyframes fall{
-    to{
-        transform:translateY(110vh) rotate(720deg);
-        opacity:0;
-    }
+  to{
+    transform:translateY(110vh) rotate(720deg);
+    opacity:0;
+  }
 }
 
-/* NAV */
-.nav{
-    position:fixed;
-    bottom:15px;
-    right:15px;
-    z-index:100;
-    padding:8px;
-    border-radius:30px;
-    background:#0006;
-    backdrop-filter:blur(10px);
-}
-
-.nav button{
-    padding:9px 13px;
-}
 
 /* MOBILE */
-@media(max-width:600px){
 
-    .gallery{
-        grid-template-columns:repeat(2,1fr);
-        gap:10px;
-    }
+@media(max-width:500px){
 
-    .letter{
-        padding:25px 18px;
-    }
+  .orbit{
+    width:280px;
+    height:280px;
+  }
 
-    .letter p{
-        font-size:15px;
-    }
+  .orbitPhoto{
+    width:65px;
+    height:65px;
+  }
+
+  .p1,.p4{
+    left:107px;
+  }
+
+  .letter{
+    padding:24px 18px;
+  }
+
+  .letter p{
+    font-size:15px;
+  }
 }
 </style>
 </head>
 
+
 <body>
 
+
 <!-- FLOATING HEARTS -->
+
 <script>
 
-for(let i=0;i<20;i++){
+for(let i=0;i<15;i++){
 
-    let heart=document.createElement("div");
+  let heart=document.createElement("div");
 
-    heart.className="heart";
+  heart.className="heart";
 
-    heart.innerHTML=["❤️","💗","💖","✨","🌸"][i%5];
+  heart.innerHTML=["❤️","💗","✨","🌸"][i%4];
 
-    heart.style.left=Math.random()*100+"%";
+  heart.style.left=Math.random()*100+"%";
 
-    heart.style.animationDelay=Math.random()*6+"s";
+  heart.style.animationDelay=Math.random()*6+"s";
 
-    heart.style.animationDuration=(5+Math.random()*5)+"s";
+  document.body.appendChild(heart);
 
-    document.body.appendChild(heart);
 }
 
 </script>
 
 
-<!-- ================= HOME ================= -->
+<!-- ================= INTRO ================= -->
 
-<section id="home">
+<section id="intro" class="page active">
 
-<div>
+<div class="introBox">
+
+<div class="small">
+A LITTLE SOMETHING FOR YOU
+</div>
 
 <h1>
-Happy Birthday,<br>
-Anushka ❤️
+Hey Anushka... ❤️
 </h1>
 
-<p class="subtitle">
-Today is all about you and that beautiful smile of yours. 🌸
+<p>
+I made something special for your birthday.
 </p>
 
-<div class="buttons">
-
-<button onclick="celebrate()">
-🎉 Celebrate
-</button>
-
-<button onclick="showBanner()">
-🎀 Birthday Wish
-</button>
-
-<button onclick="releaseBalloons()">
-🎈 Release Balloons
-</button>
-
-<button onclick="go('gift')">
-🎁 Surprise
+<button onclick="nextPage('suspense')">
+Don't Open Yet... ✨
 </button>
 
 </div>
 
-<div id="banner" class="hidden"
-style="margin-top:25px;font-size:23px;font-weight:bold;">
+</section>
 
-🎀 Happy Birthday Anushka! 🎀
-<br>
-❤️ You deserve all the happiness in the world ❤️
+
+
+<!-- ================= SUSPENSE ================= -->
+
+<section id="suspense" class="page">
+
+<div class="suspenseBox">
+
+<div class="suspenseText">
+MEMORIES ARE WAITING...
+</div>
+
+<h2>
+Can you guess what's next? 👀
+</h2>
+
+<div class="hint">
+Don't try to understand everything... just watch. ❤️
+</div>
+
+
+<div class="orbit">
+
+<div class="orbitRing"></div>
+
+
+<div class="orbitPhoto p1">
+<img src="photo1.jpg">
+</div>
+
+<div class="orbitPhoto p2">
+<img src="photo2.jpg">
+</div>
+
+<div class="orbitPhoto p3">
+<img src="photo3.jpg">
+</div>
+
+<div class="orbitPhoto p4">
+<img src="photo4.jpg">
+</div>
+
+<div class="orbitPhoto p5">
+<img src="photo5.jpg">
+</div>
+
+<div class="orbitPhoto p6">
+<img src="photo6.jpg">
+</div>
+
+</div>
+
+
+<div id="secretText">
+
+✨ You probably know these photos...<br>
+
+but you don't know what's coming next. ❤️
+
+</div>
+
+
+<div class="reveal">
+
+<button onclick="revealSecret()">
+Tap To Reveal ❤️
+</button>
 
 </div>
 
@@ -317,114 +519,31 @@ style="margin-top:25px;font-size:23px;font-weight:bold;">
 
 
 
-<!-- ================= GIFT ================= -->
+<!-- ================= MEMORY ================= -->
 
-<section id="gift">
+<section id="memory" class="page">
 
-<div class="giftbox">
+<div class="memoryBox">
 
-<div class="giftemoji">
-🎁
+<div style="font-family:Arial;letter-spacing:3px;font-size:12px;opacity:.6">
+ONE MEMORY
 </div>
 
 <h2>
-A Little Surprise 💝
+And then... we happened. ❤️
 </h2>
 
-<p style="font-family:Arial;margin:15px 0;">
-Tap the button to open my little surprise ❤️
+<p>
+School पासून आपण सोबत होतो...
+पण त्या वेळी कधी बोललोही नाही.
 </p>
 
-<button
-style="background:#e55b8a;"
-onclick="openGift()">
-
-Open My Gift ❤️
-
-</button>
-
-<p id="giftmessage"
-class="hidden"
-style="font-family:Arial;line-height:1.8;margin-top:25px;">
-
-Some people enter our life quietly...  
-<br>
-
-and somehow become the most beautiful part of it. ❤️
-
-<br><br>
-
-And for me...  
-that person is <b>Anushka</b>. 🌸
-
-</p>
-
-<br>
-
-<button onclick="go('gallery')">
-Our Memories → 📸
-</button>
-
+<div class="memoryPhoto">
+<img src="photo1.jpg">
 </div>
 
-</section>
-
-
-
-<!-- ================= GALLERY ================= -->
-
-<section id="gallery">
-
-<div>
-
-<h2>
-Our Memory Gallery 📸
-</h2>
-
-<p style="font-family:Arial;color:#ffffffaa;">
-Some moments become memories...  
-<br>
-and some memories become forever. ❤️
-</p>
-
-
-<div class="gallery">
-
-<div class="photo">
-<img src="photo1.jpg"
-onerror="this.src='https://via.placeholder.com/400x500?text=Photo+1'">
-</div>
-
-<div class="photo">
-<img src="photo2.jpg"
-onerror="this.src='https://via.placeholder.com/400x500?text=Photo+2'">
-</div>
-
-<div class="photo">
-<img src="photo3.jpg"
-onerror="this.src='https://via.placeholder.com/400x500?text=Photo+3'">
-</div>
-
-<div class="photo">
-<img src="photo4.jpg"
-onerror="this.src='https://via.placeholder.com/400x500?text=Photo+4'">
-</div>
-
-<div class="photo">
-<img src="photo5.jpg"
-onerror="this.src='https://via.placeholder.com/400x500?text=Photo+5'">
-</div>
-
-<div class="photo">
-<img src="photo6.jpg"
-onerror="this.src='https://via.placeholder.com/400x500?text=Photo+6'">
-</div>
-
-</div>
-
-
-<button onclick="go('letter')">
-Final Message → 💌
+<button onclick="nextMemory()">
+There's More... 💗
 </button>
 
 </div>
@@ -435,7 +554,7 @@ Final Message → 💌
 
 <!-- ================= LETTER ================= -->
 
-<section id="letter">
+<section id="letter" class="page">
 
 <div class="letter">
 
@@ -469,36 +588,36 @@ school मध्ये असताना आपण कधी
 
 
 <p>
-School संपलं...
-आणि त्यानंतर हळूहळू आपलं बोलणं सुरू झालं.
+School संपल्यानंतर हळूहळू
+आपलं बोलणं सुरू झालं.
 थोडं बोलणं,
 मग अजून थोडं...
 आणि नकळत तुझ्याशी बोलणं
-माझ्या दिवसाचा एक सुंदर भाग बनलं.
+माझ्या दिवसाचा सुंदर भाग बनलं.
 </p>
 
 
 <p>
-एक दिवस मी माझ्या मनातलं
+एकदा मी माझ्या मनातलं
 तुला सांगितलं...
 मी तुला propose केलं.
-पण तुझं उत्तर तेव्हा
+पण तेव्हा तुझं उत्तर
 <strong>“नाही”</strong> होतं.
 </p>
 
 
 <p>
-त्या वेळी मनाला थोडं वाईट वाटलं...
+मनाला वाईट वाटलं...
 पण कदाचित आपल्या story ची
 वेळ अजून आलेली नव्हती.
 </p>
 
 
 <p>
-मग एक पूर्ण वर्ष निघून गेलं...
+मग जवळपास एक पूर्ण वर्ष गेलं...
 आणि पुन्हा आपण बोलायला लागलो.
-जुनं नातं जणू पुन्हा
-एका नव्या पानापासून सुरू झालं. ❤️
+जुन्या ओळखीला जणू
+नवीन सुरुवात मिळाली. ❤️
 </p>
 
 
@@ -506,14 +625,18 @@ School संपलं...
 आणि यावेळी...
 मी पुन्हा माझ्या मनातलं
 तुला सांगितलं.
-पुन्हा एकदा तुला propose केलं...
+पुन्हा तुला propose केलं...
 </p>
 
 
-<p style="text-align:center;font-size:24px!important;">
+<p style="text-align:center;font-size:23px!important">
+
 आणि यावेळी तुझं उत्तर होतं...
-<br>
+
+<br><br>
+
 <strong>“हो.” ❤️</strong>
+
 </p>
 
 
@@ -524,36 +647,29 @@ School संपलं...
 अनेक आठवणी,
 थांबलेलं बोलणं
 आणि शेवटी मिळालेली
-एक सुंदर सुरुवात. ❤️
-</p>
-
-
-<p>
-कधी कधी मला वाटतं,
-आपली story खूप वेगळी आहे...
-कारण सुरुवात झाली
-<strong>“कधी बोललोही नाही”</strong> पासून,
-आणि आज तू माझ्यासाठी
-इतकी special आहेस.
+एक सुंदर सुरुवात.
 </p>
 
 
 <p>
 कधी बोललो नाही,
-तरी मनात कुठेतरी नातं होतंच...
+तरी कुठेतरी नातं होतंच...
 कधी दूर गेलो,
-तरी मन तुझ्यापासून दूर झालं नाही...
+तरी मन तुझ्यापासून दूर झालं नाही.
+</p>
+
+
+<p>
 एकदा “नाही” मिळालं,
 म्हणून story संपली नाही...
-कारण कदाचित
-आपल्या दोघांसाठी
+कारण कदाचित आपल्या दोघांसाठी
 खरी सुरुवात अजून बाकी होती. ❤️
 </p>
 
 
 <p>
 आज तुझ्या birthday ला
-मला तुला फक्त एवढंच सांगायचं आहे...
+मला फक्त एवढंच सांगायचं आहे...
 </p>
 
 
@@ -576,10 +692,6 @@ School संपलं...
 
 
 <p>
-आजचा दिवस फक्त तुझा आहे...
-म्हणून आज एकच wish —
-<br><br>
-
 <strong>
 “देवा, तिच्या आयुष्यातल्या
 प्रत्येक दुःखापेक्षा
@@ -592,7 +704,8 @@ School संपलं...
 <p class="signature">
 
 Happy Birthday, Anushka! 🎂❤️
-<br>
+
+<br><br>
 
 Stay happy...
 Stay smiling...
@@ -612,29 +725,11 @@ to have you in his life. ❤️
 
 
 
-<!-- ================= NAV ================= -->
-
-<div class="nav">
-
-<button onclick="go('home')">🏠</button>
-
-<button onclick="go('gift')">🎁</button>
-
-<button onclick="go('gallery')">📸</button>
-
-<button onclick="go('letter')">💌</button>
-
-</div>
-
-
-
 <!-- ================= SONG ================= -->
 
 <audio id="song" loop>
 
-<source
-src="tu_mara_koi_na.mp3"
-type="audio/mpeg">
+<source src="tu_mara_koi_na.mp3" type="audio/mpeg">
 
 </audio>
 
@@ -645,118 +740,60 @@ type="audio/mpeg">
 const song=document.getElementById("song");
 
 
-/* SONG START AFTER FIRST TOUCH */
+/* START SONG AFTER FIRST TAP */
 
-document.body.addEventListener("click",function(){
+document.body.addEventListener("click",()=>{
 
-    song.play().catch(()=>{});
+  song.play().catch(()=>{});
 
 },{once:true});
 
 
 
-/* SCROLL */
+/* PAGE CHANGE */
 
-function go(id){
+function nextPage(id){
 
-    document.getElementById(id)
-    .scrollIntoView({
-        behavior:"smooth"
-    });
+  document.querySelector(".page.active")
+  .classList.remove("active");
 
-}
-
-
-
-/* BANNER */
-
-function showBanner(){
-
-    document
-    .getElementById("banner")
-    .classList
-    .remove("hidden");
-
-    confetti(60);
+  document.getElementById(id)
+  .classList.add("active");
 
 }
 
 
 
-/* GIFT */
+/* SECRET REVEAL */
 
-function openGift(){
+function revealSecret(){
 
-    document
-    .getElementById("giftmessage")
-    .classList
-    .remove("hidden");
+  document.getElementById("secretText")
+  .style.display="block";
 
-    confetti(100);
+  confetti(80);
 
-}
+  setTimeout(()=>{
 
+    nextPage("memory");
 
-
-/* CELEBRATE */
-
-function celebrate(){
-
-    showBanner();
-
-    releaseBalloons();
-
-    confetti(150);
+  },3000);
 
 }
 
 
 
-/* BALLOONS */
+/* MEMORY */
 
-function releaseBalloons(){
+function nextMemory(){
 
-    for(let i=0;i<18;i++){
+  confetti(100);
 
-        let balloon=document.createElement("div");
+  setTimeout(()=>{
 
-        balloon.innerHTML="🎈";
+    nextPage("letter");
 
-        balloon.style.position="fixed";
-
-        balloon.style.left=
-        Math.random()*100+"%";
-
-        balloon.style.bottom="-60px";
-
-        balloon.style.fontSize=
-        (30+Math.random()*30)+"px";
-
-        balloon.style.zIndex="60";
-
-        balloon.style.transition=
-        "transform 5s linear,opacity 5s";
-
-        document.body.appendChild(balloon);
-
-
-        setTimeout(()=>{
-
-            balloon.style.transform=
-            "translateY(-110vh)";
-
-            balloon.style.opacity="0";
-
-        },50);
-
-
-        setTimeout(()=>{
-
-            balloon.remove();
-
-        },5200);
-
-    }
+  },700);
 
 }
 
@@ -766,38 +803,34 @@ function releaseBalloons(){
 
 function confetti(number){
 
-    for(let i=0;i<number;i++){
+  for(let i=0;i<number;i++){
 
-        let c=document.createElement("span");
+    let c=document.createElement("span");
 
-        c.className="confetti";
+    c.className="confetti";
 
-        c.style.left=
-        Math.random()*100+"vw";
+    c.style.left=Math.random()*100+"vw";
 
-        c.style.animationDuration=
-        (2+Math.random()*3)+"s";
+    c.style.background=[
+      "#ff5c8a",
+      "#ffd166",
+      "#ffffff",
+      "#c8a2ff",
+      "#7ee8fa"
+    ][Math.floor(Math.random()*5)];
 
-        c.style.background=
-        [
-        "#ff5c8a",
-        "#ffd166",
-        "#7ee8fa",
-        "#ffffff",
-        "#b8f2a1",
-        "#c8a2ff"
-        ][Math.floor(Math.random()*6)];
+    c.style.animationDuration=
+      (2+Math.random()*3)+"s";
 
-        document.body.appendChild(c);
+    document.body.appendChild(c);
 
+    setTimeout(()=>{
 
-        setTimeout(()=>{
+      c.remove();
 
-            c.remove();
+    },5000);
 
-        },5500);
-
-    }
+  }
 
 }
 
