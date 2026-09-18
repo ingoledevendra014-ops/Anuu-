@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Happy Birthday Anushka ❤️</title>
 
 <style>
@@ -21,7 +20,7 @@ html,body{
 body{
     overflow:hidden;
     background:linear-gradient(135deg,#180014,#4b0828,#12000f);
-    color:white;
+    color:#fff;
     font-family:Georgia,serif;
 }
 
@@ -29,10 +28,7 @@ body{
 
 .page{
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+    inset:0;
     display:none;
     justify-content:center;
     align-items:center;
@@ -42,7 +38,7 @@ body{
 
 .page.active{
     display:flex;
-    animation:fadeIn 0.8s ease;
+    animation:fadeIn .8s ease;
 }
 
 .content{
@@ -57,7 +53,7 @@ h1{
 
 h2{
     font-size:30px;
-    margin-bottom:18px;
+    margin-bottom:15px;
 }
 
 p{
@@ -76,88 +72,91 @@ button{
     color:white;
     font-size:16px;
     cursor:pointer;
-    box-shadow:0 8px 25px rgba(255,79,145,0.4);
+    box-shadow:0 8px 25px rgba(255,79,145,.4);
 }
 
 button:active{
-    transform:scale(0.96);
+    transform:scale(.96);
 }
 
-/* BIG PHOTO ORBIT */
+/* =========================
+   BIG ROTATING PHOTOS
+========================= */
 
 .orbit{
-    position:relative;
-    width:380px;
-    height:380px;
+    width:360px;
+    height:360px;
     margin:20px auto 5px;
-    animation:orbitRotate 22s linear infinite;
+    position:relative;
+    animation:orbitRotate 20s linear infinite;
 }
 
 .orbitRing{
     position:absolute;
     inset:0;
-    border:1px solid rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,.18);
     border-radius:50%;
 }
 
 .orbitPhoto{
     position:absolute;
-    width:125px;
-    height:165px;
+    width:115px;
+    height:155px;
     overflow:hidden;
     border-radius:18px;
-    border:3px solid rgba(255,255,255,0.85);
+    border:3px solid rgba(255,255,255,.9);
     background:#111;
-    box-shadow:0 10px 35px rgba(0,0,0,0.6);
+    box-shadow:0 10px 35px rgba(0,0,0,.6);
 }
 
 .orbitPhoto img{
     width:100%;
     height:100%;
-    display:block;
     object-fit:cover;
+    display:block;
 }
 
 .p1{
-    top:-35px;
-    left:127px;
+    top:-25px;
+    left:122px;
 }
 
 .p2{
-    top:45px;
-    right:-45px;
+    top:40px;
+    right:-30px;
 }
 
 .p3{
-    bottom:45px;
-    right:-45px;
+    bottom:40px;
+    right:-30px;
 }
 
 .p4{
-    bottom:-35px;
-    left:127px;
+    bottom:-25px;
+    left:122px;
 }
 
 .p5{
-    bottom:45px;
-    left:-45px;
+    bottom:40px;
+    left:-30px;
 }
 
 .p6{
-    top:45px;
-    left:-45px;
+    top:40px;
+    left:-30px;
 }
 
 @keyframes orbitRotate{
     from{
         transform:rotate(0deg);
     }
+
     to{
         transform:rotate(360deg);
     }
 }
 
-/* MEMORY */
+/* MEMORY PHOTO */
 
 .memoryPhoto{
     width:280px;
@@ -167,7 +166,7 @@ button:active{
     display:block;
     margin:15px auto;
     border-radius:20px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.6);
+    box-shadow:0 15px 40px rgba(0,0,0,.6);
 }
 
 /* LETTER */
@@ -178,8 +177,8 @@ button:active{
     overflow-y:auto;
     padding:25px;
     text-align:left;
-    background:rgba(255,255,255,0.07);
-    border:1px solid rgba(255,255,255,0.15);
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.15);
     border-radius:25px;
     backdrop-filter:blur(10px);
 }
@@ -195,18 +194,19 @@ button:active{
 .heart{
     position:fixed;
     bottom:-40px;
+    z-index:10;
     pointer-events:none;
     animation:heartUp 7s linear forwards;
-    z-index:10;
 }
 
 @keyframes heartUp{
+
     0%{
         transform:translateY(0) rotate(0);
         opacity:0;
     }
 
-    15%{
+    20%{
         opacity:1;
     }
 
@@ -223,11 +223,13 @@ button:active{
     top:-20px;
     width:8px;
     height:14px;
+    background:white;
     z-index:20;
     animation:confettiDown 4s linear forwards;
 }
 
 @keyframes confettiDown{
+
     from{
         transform:translateY(0) rotate(0);
     }
@@ -240,9 +242,10 @@ button:active{
 /* FADE */
 
 @keyframes fadeIn{
+
     from{
         opacity:0;
-        transform:scale(0.96);
+        transform:scale(.96);
     }
 
     to{
@@ -268,29 +271,28 @@ button:active{
     }
 
     .orbit{
-        width:330px;
-        height:330px;
-        margin-top:10px;
+        width:320px;
+        height:320px;
     }
 
     .orbitPhoto{
-        width:105px;
-        height:140px;
+        width:100px;
+        height:135px;
     }
 
     .p1,
     .p4{
-        left:112px;
+        left:110px;
     }
 
     .p2,
     .p3{
-        right:-25px;
+        right:-18px;
     }
 
     .p5,
     .p6{
-        left:-25px;
+        left:-18px;
     }
 
     .letter{
@@ -309,12 +311,14 @@ button:active{
 
 <!-- MUSIC -->
 
-<audio id="song" loop preload="auto">
+<audio id="song" loop>
     <source src="tu_mara_koi_na.mp3" type="audio/mpeg">
 </audio>
 
 
-<!-- PAGE 1 -->
+<!-- =========================
+     PAGE 1
+========================= -->
 
 <section class="page active" id="page1">
 
@@ -328,7 +332,7 @@ button:active{
             surprise cha meaning kay rahil? 👀
         </p>
 
-        <button type="button" onclick="nextPage()">
+        <button id="btn1">
             Don't Open Yet... ✨
         </button>
 
@@ -337,7 +341,9 @@ button:active{
 </section>
 
 
-<!-- PAGE 2 -->
+<!-- =========================
+     PAGE 2
+========================= -->
 
 <section class="page" id="page2">
 
@@ -375,7 +381,7 @@ button:active{
 
         </div>
 
-        <button type="button" onclick="nextPage()">
+        <button id="btn2">
             Tap To Reveal ❤️
         </button>
 
@@ -384,7 +390,9 @@ button:active{
 </section>
 
 
-<!-- PAGE 3 -->
+<!-- =========================
+     PAGE 3
+========================= -->
 
 <section class="page" id="page3">
 
@@ -403,7 +411,7 @@ button:active{
             pan kahi moments life bhar lakshat rahatat. ❤️
         </p>
 
-        <button type="button" onclick="nextPage()">
+        <button id="btn3">
             There's More... 💗
         </button>
 
@@ -412,7 +420,9 @@ button:active{
 </section>
 
 
-<!-- PAGE 4 -->
+<!-- =========================
+     PAGE 4
+========================= -->
 
 <section class="page" id="page4">
 
@@ -435,7 +445,7 @@ button:active{
             </p>
 
             <p>
-                Ekda mi तुला propose kel hota...
+                Ekda mi tula propose kel hota...
                 pan tevha tu nahi mhanalis.
                 Tya veles khup kahi manaat hota,
                 pan mi te accept kel.
@@ -450,7 +460,7 @@ button:active{
 
             <p>
                 Ani mag ek divas...
-                mi punha तुला propose kel.
+                mi punha tula propose kel.
                 Ya veli tu ho mhanalis. ❤️
             </p>
 
@@ -507,28 +517,186 @@ button:active{
 
 <script>
 
-/* CURRENT PAGE */
+/* =========================
+   PAGE NAVIGATION
+========================= */
 
-let currentPage = 1;
+var currentPage = 1;
 
-
-/* NEXT PAGE */
-
-function nextPage(){
+function showPage(pageNumber){
 
     var oldPage = document.getElementById("page" + currentPage);
+    var newPage = document.getElementById("page" + pageNumber);
 
-    if(oldPage){
-        oldPage.classList.remove("active");
+    if(!oldPage || !newPage){
+        return;
     }
 
-    currentPage = currentPage + 1;
+    oldPage.classList.remove("active");
+    newPage.classList.add("active");
 
-    if(currentPage > 4){
-        currentPage = 4;
+    currentPage = pageNumber;
+
+    createHearts();
+
+    if(pageNumber === 4){
+        createConfetti();
+    }
+}
+
+
+/* BUTTON 1 */
+
+document.getElementById("btn1").addEventListener("click", function(){
+
+    startMusic();
+    showPage(2);
+
+});
+
+
+/* BUTTON 2 */
+
+document.getElementById("btn2").addEventListener("click", function(){
+
+    startMusic();
+    showPage(3);
+
+});
+
+
+/* BUTTON 3 */
+
+document.getElementById("btn3").addEventListener("click", function(){
+
+    startMusic();
+    showPage(4);
+
+});
+
+
+/* =========================
+   MUSIC
+========================= */
+
+var musicStarted = false;
+
+function startMusic(){
+
+    if(musicStarted){
+        return;
     }
 
-    var newPage = document.getElementById("page" + currentPage);
+    var song = document.getElementById("song");
 
-    if(newPage){
-        newPage.classList
+    if(!song){
+        return;
+    }
+
+    var playPromise = song.play();
+
+    if(playPromise !== undefined){
+
+        playPromise
+        .then(function(){
+
+            musicStarted = true;
+
+        })
+        .catch(function(){
+
+            /* Browser may block audio */
+
+        });
+
+    }
+}
+
+
+/* =========================
+   HEARTS
+========================= */
+
+function createHearts(){
+
+    var heartTypes = [
+        "❤️",
+        "💗",
+        "💕",
+        "💖",
+        "💘"
+    ];
+
+    for(var i = 0; i < 7; i++){
+
+        var heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML =
+            heartTypes[
+                Math.floor(
+                    Math.random() * heartTypes.length
+                )
+            ];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.fontSize =
+            (15 + Math.random() * 18) + "px";
+
+        heart.style.animationDuration =
+            (5 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function(){
+
+            if(heart.parentNode){
+
+                heart.parentNode.removeChild(heart);
+
+            }
+
+        },8000);
+    }
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+function createConfetti(){
+
+    for(var i = 0; i < 60; i++){
+
+        var piece = document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(function(){
+
+            if(piece.parentNode){
+
+                piece.parentNode.removeChild(piece);
+
+            }
+
+        },6000);
+    }
+}
+
+</script>
+
+</body>
+</html>
