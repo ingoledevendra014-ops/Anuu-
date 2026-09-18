@@ -72,7 +72,7 @@ button:hover{
     transform:scale(1.07);
 }
 
-/* Floating Hearts */
+/* FLOATING HEARTS */
 
 .heart{
     position:fixed;
@@ -97,7 +97,7 @@ button:hover{
     }
 }
 
-/* PHOTO ORBIT */
+/* BIG ROTATING PHOTOS */
 
 .orbit{
     width:380px;
@@ -233,6 +233,8 @@ button:hover{
     }
 }
 
+/* MOBILE */
+
 @media(max-width:500px){
 
     h1{
@@ -299,4 +301,271 @@ button:hover{
             Aaj kahi tari special aahe... ✨<br>
             Pan sagla ekdam sangitla tar<br>
             surprise cha meaning kay rahil? 👀
-       
+        </p>
+
+        <button onclick="nextPage()">
+            Don't Open Yet... ✨
+        </button>
+
+    </div>
+</section>
+
+
+<!-- PAGE 2 -->
+
+<section class="page" id="page2">
+    <div class="content">
+
+        <h2>Can you guess what's next? 👀</h2>
+
+        <div class="orbit">
+
+            <div class="orbitRing"></div>
+
+            <div class="orbitPhoto p1">
+                <img src="photo1.jpg" alt="Memory 1">
+            </div>
+
+            <div class="orbitPhoto p2">
+                <img src="photo2.jpg" alt="Memory 2">
+            </div>
+
+            <div class="orbitPhoto p3">
+                <img src="photo3.jpg" alt="Memory 3">
+            </div>
+
+            <div class="orbitPhoto p4">
+                <img src="photo4.jpg" alt="Memory 4">
+            </div>
+
+            <div class="orbitPhoto p5">
+                <img src="photo5.jpg" alt="Memory 5">
+            </div>
+
+            <div class="orbitPhoto p6">
+                <img src="photo6.jpg" alt="Memory 6">
+            </div>
+
+        </div>
+
+        <button onclick="nextPage()">
+            Tap To Reveal ❤️
+        </button>
+
+    </div>
+</section>
+
+
+<!-- PAGE 3 -->
+
+<section class="page" id="page3">
+    <div class="content">
+
+        <h2>And then... we happened. ❤️</h2>
+
+        <img src="photo1.jpg" class="memoryPhoto">
+
+        <p>
+            Kahi moments simple astat...
+            pan kahi moments life bhar lakshat rahatat. ❤️
+        </p>
+
+        <button onclick="nextPage()">
+            There's More... 💗
+        </button>
+
+    </div>
+</section>
+
+
+<!-- PAGE 4 -->
+
+<section class="page" id="page4">
+    <div class="content">
+
+        <h2>For You, Anushka ❤️</h2>
+
+        <div class="letter">
+
+            <p>
+                Kahi nati hi suruvatipasun special nastat...
+                pan halu-halu te aaplya life cha ek beautiful part bantat. ❤️
+            </p>
+
+            <p>
+                Aapan school madhye ekmekanna olkhat hoto,
+                pan tevha kadhi bollo nahi...
+                School samplyanantar halu-halu aapli bolnyachi
+                suruvat zali.
+            </p>
+
+            <p>
+                Ekda mi तुला propose kel hota...
+                pan tevha tu nahi mhanalis.
+                Tya veles khup kahi manaat hota,
+                pan mi te accept kel.
+            </p>
+
+            <p>
+                Nantar almost ek full year gela...
+                ani punha aapli talking suru zali.
+                Kadhi vatlach navhta ki
+                aapli story punha itki beautiful hoil.
+            </p>
+
+            <p>
+                Ani mag ek divas...
+                mi punha तुला propose kel.
+                Ya veli tu ho mhanalis. ❤️
+            </p>
+
+            <p>
+                Tya eka "Ho" mule
+                majhya life madhla ek beautiful chapter suru zala.
+            </p>
+
+            <p>
+                Anushka, tu majhya life madhye aali
+                ani khup kahi change zala.
+                Tujhyasobat asताना mala
+                happiness, peace ani ek veglach comfort feel hoto.
+            </p>
+
+            <p>
+                Mi perfect nahi...
+                majhyakadun mistakes hotil,
+                kadhi kadhi mi silent hoil,
+                kadhi feelings properly express nahi karu shakel...
+                pan ek goshta nakki —
+                tu majhyasathi khup special ahes. ❤️
+            </p>
+
+            <p>
+                Thank you majhya life madhye yenyasathi,
+                mala samjun ghenyasathi
+                ani majhyasobat rahilyasathi.
+            </p>
+
+            <p>
+                Tujha birthday fakt tuzha special day nahi...
+                tar majhyasathi pan ek special day aahe,
+                karan ya divshi majhya favourite person cha birthday aahe. ❤️
+            </p>
+
+            <p>
+                Happy Birthday Anushka! 🎂❤️
+                Always smile, always be happy...
+                ani ho,
+                majhya life madhye asach rah. 🫶
+            </p>
+
+            <p style="text-align:center;font-size:22px;">
+                I Love You ❤️
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<script>
+
+let currentPage = 1;
+
+function nextPage(){
+
+    document.getElementById("page" + currentPage)
+    .classList.remove("active");
+
+    currentPage++;
+
+    if(currentPage > 4){
+        currentPage = 4;
+    }
+
+    document.getElementById("page" + currentPage)
+    .classList.add("active");
+
+    createHearts();
+
+    if(currentPage === 4){
+        createConfetti();
+    }
+}
+
+
+/* MUSIC START AFTER FIRST TAP */
+
+document.body.addEventListener("click", function(){
+
+    const song = document.getElementById("song");
+
+    song.play().catch(()=>{});
+
+},{once:true});
+
+
+/* HEARTS */
+
+function createHearts(){
+
+    for(let i=0;i<8;i++){
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML =
+            ["❤️","💗","💕","💖","💘"]
+            [Math.floor(Math.random()*5)];
+
+        heart.style.left =
+            Math.random()*100 + "%";
+
+        heart.style.animationDuration =
+            (5 + Math.random()*4) + "s";
+
+        heart.style.fontSize =
+            (15 + Math.random()*18) + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },9000);
+    }
+}
+
+
+/* CONFETTI */
+
+function createConfetti(){
+
+    for(let i=0;i<70;i++){
+
+        const c = document.createElement("div");
+
+        c.className = "confetti";
+
+        c.style.left =
+            Math.random()*100 + "%";
+
+        c.style.animationDelay =
+            Math.random()*3 + "s";
+
+        c.style.transform =
+            "rotate(" + Math.random()*360 + "deg)";
+
+        document.body.appendChild(c);
+
+        setTimeout(()=>{
+            c.remove();
+        },5000);
+    }
+}
+
+</script>
+
+</body>
+</html>
